@@ -1,0 +1,290 @@
+{
+  "id": "28824654-4681-4276-959e-0b50db638df6",
+  "version": "2.0",
+  "name": "benepia",
+  "url": "https://hywelplus.skhynix.com/condo/reservation/view",
+  "tests": [{
+    "id": "aadb69a9-26f2-4293-85d1-c364066b4a63",
+    "name": "benepia2",
+    "commands": [{
+      "id": "6f82610f-7de4-4cae-b013-802149acd131",
+      "comment": "login url 선언",
+      "command": "executeScript",
+      "target": "return (\"https://hywelplus.skhynix.com/login\")",
+      "targets": [],
+      "value": "loginUrl"
+    }, {
+      "id": "f86bdad2-4b57-4578-810c-4a8168815b50",
+      "comment": "예약 url 선언",
+      "command": "executeScript",
+      "target": "return (\"https://hywelplus.skhynix.com/condo/reservation/view\")",
+      "targets": [],
+      "value": "roomResvUrl"
+    }, {
+      "id": "c7ea6489-2fc2-42a5-9b6d-78d32a16f8d4",
+      "comment": "예약 url open",
+      "command": "open",
+      "target": "https://hywelplus.skhynix.com/condo/reservation/view",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ca01bc41-989e-4c75-b7e0-0549c4fead52",
+      "comment": "현재 url 가져오기",
+      "command": "executeScript",
+      "target": "return (window.location.href)",
+      "targets": [],
+      "value": "currentUrl"
+    }, {
+      "id": "edb3b151-c49d-4864-934c-e1e9e24aad79",
+      "comment": "현재 url 가져오기",
+      "command": "echo",
+      "target": "${currentUrl}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0618d041-3bfd-4ca1-aa28-34466d9e9923",
+      "comment": "조건문(로그인url redirect)",
+      "command": "if",
+      "target": "${currentUrl} == ${loginUrl}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "39bf6ee8-f6a1-41c7-8614-1d59b664a287",
+      "comment": "",
+      "command": "type",
+      "target": "id=userId",
+      "targets": [],
+      "value": "2074661"
+    }, {
+      "id": "a74710c6-6163-43ad-a53a-3345d7c01b40",
+      "comment": "",
+      "command": "type",
+      "target": "id=userPass",
+      "targets": [
+        ["id=userPass", "id"],
+        ["name=password", "name"],
+        ["css=#userPass", "css:finder"],
+        ["xpath=//input[@id='userPass']", "xpath:attributes"],
+        ["xpath=//form[@id='frm_login']/ul/li[2]/input", "xpath:idRelative"],
+        ["xpath=//li[2]/input", "xpath:position"]
+      ],
+      "value": "bdpdnjs05*"
+    }, {
+      "id": "f7b5d5ed-b65c-4fe9-9eb7-5737c6a06dc3",
+      "comment": "",
+      "command": "click",
+      "target": "id=loginBtn",
+      "targets": [
+        ["id=loginBtn", "id"],
+        ["css=#loginBtn", "css:finder"],
+        ["xpath=//button[@id='loginBtn']", "xpath:attributes"],
+        ["xpath=//form[@id='frm_login']/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'LOGIN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "06e96aab-d4bb-4c1c-aafa-8fd534a8a5f2",
+      "comment": "",
+      "command": "open",
+      "target": "${roomResvUrl}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7d87e724-7c02-4182-baf7-9e2926715282",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ab0b9936-fec5-4c7f-ba19-77e6f62612af",
+      "comment": "날짜선택가능 변수 선언",
+      "command": "store",
+      "target": "false",
+      "targets": [],
+      "value": "typeAttr"
+    }, {
+      "id": "3a3e211b-3d35-46f2-b269-ef1a97bc6df2",
+      "comment": "반복문(날짜 선택 가능할때까지)",
+      "command": "while",
+      "target": "${typeAttr} != \"button\"",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "57d72969-bcea-4979-b8b8-a85a52fd9dc3",
+      "comment": "현재 페이지 새로고침",
+      "command": "executeScript",
+      "target": "window.location.reload();",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "25ecb3cb-c169-4b0d-9f91-0e6e7c1d3d1f",
+      "comment": "Province click",
+      "command": "click",
+      "target": "xpath=//button[contains(.,'충북')]",
+      "targets": [
+        ["css=li:nth-child(3) > .btn-loc", "css:finder"],
+        ["xpath=(//button[@type='button'])[35]", "xpath:attributes"],
+        ["xpath=//div/ul/li[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'충북')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "19151ec6-81ed-41b6-a517-5aa7a1921035",
+      "comment": "State click",
+      "command": "click",
+      "target": "xpath=//button[contains(.,'제천시')]",
+      "targets": [
+        ["css=li:nth-child(2) > .btn-city", "css:finder"],
+        ["xpath=(//button[@type='button'])[44]", "xpath:attributes"],
+        ["xpath=//ul[@id='city2-wrap']/li[2]/button", "xpath:idRelative"],
+        ["xpath=//ul[2]/li[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'제천시')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d79d5dc3-5734-454c-a5a1-953ddfd76587",
+      "comment": "Store Attribute of date",
+      "command": "storeAttribute",
+      "target": "xpath=//button[contains(.,'24')]@type",
+      "targets": [],
+      "value": "typeAttr"
+    }, {
+      "id": "efa17ebf-ab2d-4b32-8a9b-1c95eae5fe67",
+      "comment": "end",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "eda4f6b4-14fc-4743-b0bc-50687d85c27e",
+      "comment": "Date click",
+      "command": "click",
+      "target": "xpath=//button[contains(.,'24')]",
+      "targets": [
+        ["css=.calender-list:nth-child(30) span", "css:finder"],
+        ["xpath=//li[30]/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'25')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d957b85f-ce2f-41cd-92e0-288470871fdd",
+      "comment": "roomAvaliableStatus",
+      "command": "executeScript",
+      "target": "return (document.querySelectorAll(\"#condoType-search-result > ul > li:nth-child(1) > button > span.resort-info > span.title\")[0].innerText)",
+      "targets": [],
+      "value": "roomAvaliableStatus"
+    }, {
+      "id": "2c5ee7d0-8395-43c0-aa55-ddb59be21393",
+      "comment": "roomAvaliableStatus 확인",
+      "command": "echo",
+      "target": "${roomAvaliableStatus}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4793d42f-8ed3-4a6c-8aa3-7b7bdbff0024",
+      "comment": "",
+      "command": "//store",
+      "target": "false",
+      "targets": [],
+      "value": "statusOK"
+    }, {
+      "id": "77abd912-d6c9-43fb-b37e-fbe64c989de8",
+      "comment": "",
+      "command": "//verifyText",
+      "target": "xpath=//*[@id=\"condoType-search-result\"]/ul/li[2]/button/span[1]/span[1]/strong",
+      "targets": [],
+      "value": " [신청마감]"
+    }, {
+      "id": "5a7a1a82-7f89-480d-aab7-755934898ad9",
+      "comment": "룸 타입 체크",
+      "command": "//assertText",
+      "target": "xpath=//div[@id='condoType-search-result']/ul/li[2]/button/span/span",
+      "targets": [],
+      "value": "제천 포레스트 리솜-S30 빌라 클린(포레스트)"
+    }, {
+      "id": "e7a28307-888f-4435-b81f-53a767a01c58",
+      "comment": "room click",
+      "command": "click",
+      "target": "xpath=//div[@id='condoType-search-result']/ul/li[2]/button/span/span",
+      "targets": [
+        ["css=li:nth-child(2) .title", "css:finder"],
+        ["xpath=//div[@id='condoType-search-result']/ul/li[2]/button/span/span", "xpath:idRelative"],
+        ["xpath=//li[2]/button/span/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bf2e5c12-f875-4667-9c44-4ab30babaf9b",
+      "comment": "선택완료 click",
+      "command": "click",
+      "target": "id=reservationBtn",
+      "targets": [
+        ["id=reservationBtn", "id"],
+        ["css=#reservationBtn", "css:finder"],
+        ["xpath=//button[@id='reservationBtn']", "xpath:attributes"],
+        ["xpath=//div/div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'선택완료')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e0f9bd1c-06fb-4b53-9c79-27f26899bd1a",
+      "comment": "약관 checkbox click",
+      "command": "click",
+      "target": "css=.checkbox",
+      "targets": [
+        ["css=.checkbox", "css:finder"],
+        ["xpath=//label", "xpath:position"],
+        ["xpath=//label[contains(.,'개인정보 수집 및 이용 동의 (필수)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2c67e94d-dd2f-42a0-b32e-e4cb9e14e691",
+      "comment": "예약신청 click (최종)",
+      "command": "//click",
+      "target": "id=reservationRequestBtn",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "1b809f7e-2d94-450d-a31d-4ccaf94e3965",
+    "name": "benepia_test",
+    "commands": [{
+      "id": "06751f87-ca77-4ec5-bd06-b8c4cf288bd9",
+      "comment": "",
+      "command": "open",
+      "target": "https://hywelplus.skhynix.com/condo/reservation/view",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5d42065e-bf92-4fae-a35e-0acfe8351f1e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "870x816",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8946b359-3f80-4337-a831-73e397c8364b",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//button[contains(.,'24')]",
+      "targets": [
+        ["css=.calender-list:nth-child(29) > .btn-date", "css:finder"],
+        ["xpath=(//button[@type='button'])[26]", "xpath:attributes"],
+        ["xpath=//li[29]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'24')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "ab37e092-72b9-4146-9966-0b636666160e",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["https://www.google.com/", "https://hywelplus.skhynix.com/condo/reservation/view"],
+  "plugins": []
+}

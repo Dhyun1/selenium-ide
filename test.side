@@ -1,0 +1,88 @@
+{
+  "id": "28824654-4681-4276-959e-0b50db638df6",
+  "version": "2.0",
+  "name": "test",
+  "url": "https://www.google.com",
+  "tests": [{
+    "id": "ea488a81-6921-4ec1-b05f-da5527164a06",
+    "name": "test1",
+    "commands": [{
+      "id": "26bcc1d8-f604-472c-97b4-88ea243f751e",
+      "comment": "",
+      "command": "open",
+      "target": "/search?q=test&sca_esv=565813469&sxsrf=AM9HkKl6KLSU4b7vDDb5Q4hT8RGO8Ov8tQ%3A1694833542889&source=hp&ei=hhsFZbztM9ao-QausJzYCw&iflsig=AO6bgOgAAAAAZQUpli-bmKka-vkKvJPQE29VREINi2D1&ved=0ahUKEwi8yJn6kq6BAxVWVN4KHS4YB7sQ4dUDCAs&uact=5&oq=test&gs_lp=Egdnd3Mtd2l6IgR0ZXN0MgcQABiKBRhDMgcQABiKBRhDMgcQABiKBRhDMgcQABiKBRhDMgcQABiKBRhDMgsQABiABBixAxiDATILEAAYgAQYsQMYgwEyBxAAGIoFGEMyBRAAGIAEMgUQABiABEjUBFAAWMMCcAB4AJABAJgBmwGgAZwEqgEDMC40uAEDyAEA-AEBwgIEECMYJ8ICERAuGIAEGLEDGIMBGMcBGNEDwgIIEAAYgAQYsQM&sclient=gws-wiz",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b91b94d6-b1d1-4f7b-b9c0-b5fe3093ceb2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "788x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e8b27be1-f1eb-4e15-b993-444445718641",
+      "comment": "",
+      "command": "click",
+      "target": "css=.LatpMc:nth-child(1) .FMKtTb",
+      "targets": [
+        ["css=.LatpMc:nth-child(1) .FMKtTb", "css:finder"],
+        ["xpath=//div[@id='bqHHPb']/div/div/div/a/div/span", "xpath:idRelative"],
+        ["xpath=//a/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'이미지')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bae5e038-b95c-4914-9ace-71756ab9b51f",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=동영상",
+      "targets": [
+        ["linkText=동영상", "linkText"],
+        ["css=.NZmxZe:nth-child(4)", "css:finder"],
+        ["xpath=//a[contains(text(),'동영상')]", "xpath:link"],
+        ["xpath=//body[@id='yDmH0d']/div[2]/c-wiz/div/div/div/div/div/div/a[2]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/search?q=test&source=lmns&tbm=vid&bih=699&biw=774&hl=ko&sa=X&ved=2ahUKEwjb-P_9kq6BAxWPBogKHZ2pDyEQ0pQJKAJ6BAgBEAY')]", "xpath:href"],
+        ["xpath=//div/div/div/a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'동영상')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "94102001-e510-4545-b990-5b3c5dfdfeed",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.g:nth-child(2) .LC20lb",
+      "targets": [
+        ["css=.g:nth-child(2) .LC20lb", "css:finder"],
+        ["xpath=//div[@id='rso']/div[2]/div/div/div/div/div/div/div/span/a/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Firebase Test Lab | 일반 사용자가 아닌 실험 환경에서 앱 테스트')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f60cee1f-e235-4b79-a43e-8402145542a8",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f2270cb9-b28e-42ef-8818-d948dfa246ac",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "ab37e092-72b9-4146-9966-0b636666160e",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["ea488a81-6921-4ec1-b05f-da5527164a06"]
+  }],
+  "urls": ["https://www.google.com/"],
+  "plugins": []
+}
