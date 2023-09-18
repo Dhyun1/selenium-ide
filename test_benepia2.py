@@ -34,7 +34,7 @@ class TestBenepia2():
       self.driver.find_element(By.ID, "userId").send_keys("2074661")
       self.driver.find_element(By.ID, "userPass").send_keys("bdpdnjs05*")
       self.driver.find_element(By.ID, "loginBtn").click()
-      self.driver.get("https://hywelplus.skhynix.com/condo/reservation/viewself.vars["roomResvUrl"]")
+      self.driver.get("https://hywelplus.skhynix.com/condo/reservation/viewself.vars['roomResvUrl']")
     # 날짜선택가능 변수 선언
     self.vars["typeAttr"] = "false"
     # 반복문(날짜 선택 가능할때까지)
