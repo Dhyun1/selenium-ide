@@ -119,6 +119,13 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "942e5828-92b1-4880-8ecf-9132deae6bb9",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//button[contains(.,'충북')]",
+      "targets": [],
+      "value": "30000"
+    }, {
       "id": "25ecb3cb-c169-4b0d-9f91-0e6e7c1d3d1f",
       "comment": "Province click",
       "command": "click",
@@ -130,6 +137,13 @@
         ["xpath=//button[contains(.,'충북')]", "xpath:innerText"]
       ],
       "value": ""
+    }, {
+      "id": "45345b34-4707-443e-8702-dfef26a4ca55",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//button[contains(.,'제천시')]",
+      "targets": [],
+      "value": "30000"
     }, {
       "id": "19151ec6-81ed-41b6-a517-5aa7a1921035",
       "comment": "State click",
@@ -147,7 +161,7 @@
       "id": "d79d5dc3-5734-454c-a5a1-953ddfd76587",
       "comment": "Store Attribute of date",
       "command": "storeAttribute",
-      "target": "xpath=//button[contains(.,'24')]@type",
+      "target": "xpath=//button[contains(.,'27')]@type",
       "targets": [],
       "value": "typeAttr"
     }, {
@@ -158,10 +172,17 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "db719f2d-dd80-4246-b9d5-59d3ee179a50",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//button[contains(.,'27')]",
+      "targets": [],
+      "value": "30000"
+    }, {
       "id": "eda4f6b4-14fc-4743-b0bc-50687d85c27e",
       "comment": "Date click",
       "command": "click",
-      "target": "xpath=//button[contains(.,'24')]",
+      "target": "xpath=//button[contains(.,'27')]",
       "targets": [
         ["css=.calender-list:nth-child(30) span", "css:finder"],
         ["xpath=//li[30]/button/span", "xpath:position"],
@@ -228,6 +249,13 @@
       ],
       "value": ""
     }, {
+      "id": "c27aa1ca-3909-4427-a32a-696d634bba3e",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.checkbox",
+      "targets": [],
+      "value": "30000"
+    }, {
       "id": "e0f9bd1c-06fb-4b53-9c79-27f26899bd1a",
       "comment": "약관 checkbox click",
       "command": "click",
@@ -241,7 +269,7 @@
     }, {
       "id": "2c67e94d-dd2f-42a0-b32e-e4cb9e14e691",
       "comment": "예약신청 click (최종)",
-      "command": "//click",
+      "command": "click",
       "target": "id=reservationRequestBtn",
       "targets": [],
       "value": ""

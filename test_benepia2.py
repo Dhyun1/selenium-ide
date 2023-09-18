@@ -9,17 +9,10 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 
 class TestBenepia2():
   def setup_method(self, method):
-    service = Service()
-    options = webdriver.ChromeOptions()
-    options.add_argument('--headless')
-    options.add_argument('--no-sandbox')
-    options.add_argument('--disable-dev-shm-usage')
-    self.driver = webdriver.Chrome(service=service, options=options)
+    self.driver = webdriver.Chrome()
     self.vars = {}
   
   def teardown_method(self, method):
@@ -41,33 +34,35 @@ class TestBenepia2():
       self.driver.find_element(By.ID, "userId").send_keys("2074661")
       self.driver.find_element(By.ID, "userPass").send_keys("bdpdnjs05*")
       self.driver.find_element(By.ID, "loginBtn").click()
-      self.driver.get("https://hywelplus.skhynix.com/condo/reservation/view")
+      self.driver.get("https://hywelplus.skhynix.com/condo/reservation/viewself.vars["roomResvUrl"]")
     # 날짜선택가능 변수 선언
     self.vars["typeAttr"] = "false"
     # 반복문(날짜 선택 가능할때까지)
     while self.driver.execute_script("return (arguments[0] != \"button\")", self.vars["typeAttr"]):
+      WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.XPATH, "//button[contains(.,\'충북\')]")))
       # Province click
       self.driver.find_element(By.XPATH, "//button[contains(.,\'충북\')]").click()
-      time.sleep(0.5)
+      WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.XPATH, "//button[contains(.,\'제천시\')]")))
       # State click
       self.driver.find_element(By.XPATH, "//button[contains(.,\'제천시\')]").click()
       # Store Attribute of date
       attribute = self.driver.find_element(By.XPATH, "//button[contains(.,\'27\')]").get_attribute("type")
       self.vars["typeAttr"] = attribute
       # end
+    WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.XPATH, "//button[contains(.,\'27\')]")))
     # Date click
     self.driver.find_element(By.XPATH, "//button[contains(.,\'27\')]").click()
     # roomAvaliableStatus
-    # self.vars["roomAvaliableStatus"] = self.driver.execute_script("return (document.querySelectorAll(\'#condoType-search-result > ul > li:nth-child(1) > button > span.resort-info > span.title\')[0].innerText)")
+    self.vars["roomAvaliableStatus"] = self.driver.execute_script("return (document.querySelectorAll(\'#condoType-search-result > ul > li:nth-child(1) > button > span.resort-info > span.title\')[0].innerText)")
     # roomAvaliableStatus 확인
-    # print("{}".format(self.vars["roomAvaliableStatus"]))
+    print("{}".format(self.vars["roomAvaliableStatus"]))
     # room click
-    time.sleep(0.1)
     self.driver.find_element(By.XPATH, "//div[@id=\'condoType-search-result\']/ul/li[2]/button/span/span").click()
     # 선택완료 click
-    time.sleep(0.1)
     self.driver.find_element(By.ID, "reservationBtn").click()
+    WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, ".checkbox")))
     # 약관 checkbox click
-    time.sleep(0.1)
     self.driver.find_element(By.CSS_SELECTOR, ".checkbox").click()
-    print("checkbox click end")
+    # 예약신청 click (최종)
+    self.driver.find_element(By.ID, "reservationRequestBtn").click()
+  
